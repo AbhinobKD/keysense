@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>keysense</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="flash"></div>
+
+<div class="shell">
+
+  <div class="top-bar">
+    <div class="logo">keysense</div>
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-val" id="m-wpm">—</div>
+        <div class="metric-lbl">wpm</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val" id="m-acc">—</div>
+        <div class="metric-lbl">acc</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val" id="m-words">0</div>
+        <div class="metric-lbl">words</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val" id="m-streak">0</div>
+        <div class="metric-lbl">streak</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="top-controls">
+    <div class="mode-row">
+      <div class="mode-dot" id="mode-dot"></div>
+      <div class="mode-text" id="mode-text">loading words…</div>
+      <div class="weak-pills" id="weak-pills"></div>
+    </div>
+    <div class="mode-switcher">
+      <button class="ms-btn active" id="ms-auto"   onmousedown="event.preventDefault()" onclick="switchMode('auto')">auto</button>
+      <button class="ms-btn"        id="ms-common" onmousedown="event.preventDefault()" onclick="switchMode('common')">common</button>
+      <button class="ms-btn"        id="ms-target" onmousedown="event.preventDefault()" onclick="switchMode('target')">target</button>
+    </div>
+    <button class="save-toggle" id="save-toggle" onmousedown="event.preventDefault()" onclick="toggleSaveProgress()" title="Save key accuracy, WPM history, and streaks to this browser">
+      <span class="sw"></span>
+      <span id="save-toggle-lbl">save progress</span>
+    </button>
+  </div>
+
+  <div class="typing-area" id="typing-area">
+    <div class="words-wrap" id="words-wrap"></div>
+    <input class="hidden-input" id="hidden-input"
+      type="text" autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false">
+  </div>
+
+  <div class="prompt" id="prompt">click to begin</div>
+
+  <div class="kb-wrap">
+    <div class="kb-lbl">key accuracy</div>
+    <div id="keyboard"></div>
+  </div>
+
+  <div class="lifetime-wrap" id="lifetime-wrap">
+    <div class="lifetime-head">
+      <div class="lifetime-lbl">saved progress</div>
+      <button class="lifetime-clear" id="lifetime-clear" onclick="clearSavedHistory()">clear</button>
+    </div>
+    <div class="lifetime-grid" id="lifetime-grid"></div>
+  </div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/state.js"></script>
+<script src="js/word-source.js"></script>
+<script src="js/keyboard-heatmap.js"></script>
+<script src="js/history-storage.js"></script>
+<script src="js/word-selection.js"></script>
+<script src="js/render.js"></script>
+<script src="js/input-handler.js"></script>
+<script src="js/metrics.js"></script>
+<script src="js/round-manager.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/mode-switch.js"></script>
+<script src="js/init.js"></script>
+</body>
+</html>
